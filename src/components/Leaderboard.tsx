@@ -44,7 +44,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
   return (
     <div style={{ 
       minHeight: '100vh',
-      background: 'linear-gradient(to bottom right, #fef3c7, #fed7aa, #fde68a)',
+      background: 'white',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -61,7 +61,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
           left: '5%',
           width: '60px',
           height: '60px',
-          backgroundColor: 'rgba(251, 191, 36, 0.3)',
+          backgroundColor: 'rgba(251, 191, 36, 0.1)',
           borderRadius: '50%',
           animation: 'float 6s ease-in-out infinite'
         }}></div>
@@ -71,7 +71,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
           right: '10%',
           width: '40px',
           height: '40px',
-          backgroundColor: 'rgba(245, 158, 11, 0.4)',
+          backgroundColor: 'rgba(245, 158, 11, 0.1)',
           borderRadius: '50%',
           animation: 'float 8s ease-in-out infinite 2s'
         }}></div>
@@ -81,7 +81,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
           left: '15%',
           width: '50px',
           height: '50px',
-          backgroundColor: 'rgba(251, 191, 36, 0.2)',
+          backgroundColor: 'rgba(251, 191, 36, 0.05)',
           borderRadius: '50%',
           animation: 'float 7s ease-in-out infinite 4s'
         }}></div>
@@ -129,10 +129,11 @@ export default function Leaderboard({ students }: LeaderboardProps) {
           display: 'flex',
           justifyContent: 'center',
           marginBottom: '40px',
-          background: 'rgba(255, 255, 255, 0.8)',
+          background: 'rgba(255, 255, 255, 0.9)',
           borderRadius: '16px',
           padding: '8px',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          border: '1px solid rgba(245, 158, 11, 0.2)'
         }}>
           {[
             { id: 'all', label: 'All Students', icon: Users },
@@ -209,12 +210,13 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                background: 'rgba(255, 255, 255, 0.9)',
+                background: 'rgba(255, 255, 255, 0.95)',
                 borderRadius: '20px',
                 padding: '20px',
                 boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                 transform: 'translateY(20px)',
-                minWidth: '140px'
+                minWidth: '140px',
+                border: '1px solid rgba(245, 158, 11, 0.2)'
               }}>
                 <div style={{ 
                   position: 'relative',
@@ -371,12 +373,13 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                background: 'rgba(255, 255, 255, 0.9)',
+                background: 'rgba(255, 255, 255, 0.95)',
                 borderRadius: '20px',
                 padding: '20px',
                 boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                 transform: 'translateY(20px)',
-                minWidth: '140px'
+                minWidth: '140px',
+                border: '1px solid rgba(245, 158, 11, 0.2)'
               }}>
                 <div style={{ 
                   position: 'relative',
@@ -445,11 +448,12 @@ export default function Leaderboard({ students }: LeaderboardProps) {
 
         {/* Rest of the Leaderboard */}
         <div style={{ 
-          background: 'rgba(255, 255, 255, 0.9)',
+          background: 'rgba(255, 255, 255, 0.95)',
           borderRadius: '20px',
           padding: '24px',
           boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
-          backdropFilter: 'blur(10px)'
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(245, 158, 11, 0.2)'
         }}>
           <h2 style={{ 
             fontSize: '20px',
@@ -472,7 +476,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     alignItems: 'center',
                     padding: '16px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.7)',
+                    background: 'rgba(255, 255, 255, 0.8)',
                     border: '1px solid rgba(245, 158, 11, 0.2)',
                     transition: 'all 0.3s ease',
                     cursor: 'pointer'
@@ -482,7 +486,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     e.currentTarget.style.transform = 'translateX(4px)'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.7)'
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)'
                     e.currentTarget.style.transform = 'translateX(0)'
                   }}
                 >
