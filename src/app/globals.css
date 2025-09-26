@@ -1,41 +1,93 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
-@layer base {
-  * {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom animations */
+@keyframes smoothSlideIn {
+  0% {
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
   }
-  
-  body {
-    @apply bg-white text-gray-900;
-    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  50% {
+    transform: translateY(-10px) scale(1.02);
+    opacity: 0.8;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.025em;
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
 }
 
-@layer components {
-  .gradient-border {
-    background: linear-gradient(45deg, #ff0000, #ff4000, #ff8000, #ffbf00, #ffff00, #bfff00, #80ff00, #40ff00, #00ff00, #00ff40, #00ff80, #00ffbf, #00ffff, #00bfff, #0080ff, #0040ff, #0000ff, #4000ff, #8000ff, #bf00ff, #ff00ff, #ff00bf, #ff0080, #ff0040);
-    background-size: 400% 400%;
-    animation: gradientFlow 2s linear infinite;
-    padding: 6px;
-    border-radius: 32px;
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.4), 0 0 90px rgba(255, 255, 0, 0.3);
+@keyframes gentleFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
   }
-  
-  .gradient-border-inner {
-    background: white;
-    border-radius: 26px;
-    width: 100%;
-    height: 100%;
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes welcomeGlow {
+  0% {
+    opacity: 0;
+    background: linear-gradient(45deg, rgba(244, 114, 182, 0), rgba(168, 85, 247, 0));
+  }
+  30% {
+    opacity: 0.4;
+    background: linear-gradient(45deg, rgba(244, 114, 182, 0.3), rgba(168, 85, 247, 0.3));
+  }
+  70% {
+    opacity: 0.6;
+    background: linear-gradient(45deg, rgba(244, 114, 182, 0.4), rgba(168, 85, 247, 0.4));
+  }
+  100% {
+    opacity: 0;
+    background: linear-gradient(45deg, rgba(244, 114, 182, 0), rgba(168, 85, 247, 0));
+  }
+}
+
+@keyframes welcomeText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(1);
+  }
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.4);
+    opacity: 1;
   }
 }
 
@@ -48,5 +100,61 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes confetti {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.8;
   }
 }
