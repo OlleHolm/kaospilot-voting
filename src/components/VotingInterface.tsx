@@ -123,33 +123,23 @@ export default function VotingInterface({ students, onVote }: VotingInterfacePro
         zIndex: 10
       }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <div style={{ 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '12px'
-          }}>
-            <Sparkles style={{ height: '24px', width: '24px', color: '#ec4899', marginRight: '8px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-            <h1 style={{ 
-              fontSize: '28px',
-              fontWeight: 'bold',
-              background: 'linear-gradient(to right, #db2777, #9333ea, #2563eb)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              fontFamily: 'Montserrat, sans-serif'
-            }}>
-              KAOSPILOT Community Voting
-            </h1>
-            <Sparkles style={{ height: '24px', width: '24px', color: '#ec4899', marginLeft: '8px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
-          </div>
-          <h2 style={{ 
-            fontSize: '18px',
-            fontWeight: '600',
-            color: '#1f2937',
+          <h1 style={{ 
+            fontSize: '32px',
+            fontWeight: '900',
+            letterSpacing: '-0.02em',
+            color: '#111827',
             marginBottom: '8px',
             fontFamily: 'Montserrat, sans-serif'
-          }}>Vote for the most attractive Kaospilot student</h2>
-          <p style={{ color: '#6b7280', fontSize: '16px', fontWeight: '500' }}>Choose your favorite - the winner stays, loser gets replaced!</p>
+                     }}>
+            KP—Who's hotter?
+          </h1>
+          <p style={{ 
+            color: '#4b5563',
+            fontSize: '16px',
+            fontWeight: '500'
+          }}>
+            Choose your favorite — the winner stays, the loser gets replaced.
+          </p>
         </div>
 
         {/* BULLETPROOF Horizontal Layout Container - COMPACT */}

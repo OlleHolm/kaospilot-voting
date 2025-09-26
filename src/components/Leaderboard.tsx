@@ -22,11 +22,11 @@ export default function Leaderboard({ students }: LeaderboardProps) {
   const getRankIcon = (index: number) => {
     switch (index) {
       case 0:
-        return <Crown className="h-8 w-8 text-yellow-500" />
+        return <Crown className="h-8 w-8" style={{ color: '#6a994e' }} />
       case 1:
-        return <Crown className="h-7 w-7 text-gray-400" />
+        return <Crown className="h-7 w-7" style={{ color: '#9ca3af' }} />
       case 2:
-        return <Crown className="h-6 w-6 text-amber-600" />
+        return <Crown className="h-6 w-6" style={{ color: '#6b7280' }} />
       default:
         return <span className="text-lg font-bold text-gray-400">#{index + 1}</span>
     }
@@ -103,13 +103,11 @@ export default function Leaderboard({ students }: LeaderboardProps) {
             justifyContent: 'center',
             marginBottom: '16px'
           }}>
-            <Trophy style={{ height: '32px', width: '32px', color: '#f59e0b', marginRight: '12px' }} />
+            <Trophy style={{ height: '32px', width: '32px', color: '#6a994e', marginRight: '12px' }} />
             <h1 style={{ 
               fontSize: '32px',
               fontWeight: 'bold',
-              background: 'linear-gradient(to right, #f59e0b, #d97706, #b45309)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#111827',
               fontFamily: 'Montserrat, sans-serif'
             }}>
               Leaderboard
@@ -117,7 +115,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
             <Sparkles style={{ height: '28px', width: '28px', color: '#f59e0b', marginLeft: '12px', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
           </div>
           <p style={{ 
-            color: '#92400e',
+            color: '#4b5563',
             fontSize: '18px',
             fontWeight: '500',
             fontFamily: 'Montserrat, sans-serif'
@@ -133,7 +131,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
           borderRadius: '16px',
           padding: '8px',
           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-          border: '1px solid rgba(245, 158, 11, 0.2)'
+          border: '1px solid rgba(106, 153, 78, 0.25)'
         }}>
           {[
             { id: 'all', label: 'All Students', icon: Users },
@@ -181,28 +179,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
             marginBottom: '40px',
             position: 'relative'
           }}>
-            {/* Confetti around top 3 */}
-            <div style={{ 
-              position: 'absolute',
-              top: '-20px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              gap: '8px'
-            }}>
-              {[...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: '8px',
-                    height: '8px',
-                    backgroundColor: ['#f59e0b', '#fbbf24', '#fde047', '#a3e635', '#34d399', '#60a5fa'][i],
-                    borderRadius: '50%',
-                    animation: `confetti 2s ease-in-out infinite ${i * 0.2}s`
-                  }}
-                />
-              ))}
-            </div>
+
 
             {/* 2nd Place */}
             {getTopThree()[1] && (
@@ -216,7 +193,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                 boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                 transform: 'translateY(20px)',
                 minWidth: '140px',
-                border: '1px solid rgba(245, 158, 11, 0.2)'
+                border: '1px solid rgba(106, 153, 78, 0.25)'
               }}>
                 <div style={{ 
                   position: 'relative',
@@ -275,8 +252,8 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                   color: '#6b7280',
                   fontSize: '14px'
                 }}>
-                  <Trophy style={{ height: '14px', width: '14px' }} />
-                  <span style={{ fontWeight: '600' }}>{getTopThree()[1].wins || 0} wins</span>
+                  <Trophy style={{ height: '14px', width: '14px', color: '#6a994e' }} />
+                  <span style={{ fontWeight: '600', color: '#111827' }}>{getTopThree()[1].wins || 0} wins</span>
                 </div>
               </div>
             )}
@@ -287,20 +264,19 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                background: 'linear-gradient(135deg, #fef3c7, #fde68a)',
+                background: 'white',
                 borderRadius: '24px',
                 padding: '24px',
-                boxShadow: '0 20px 40px -10px rgba(245, 158, 11, 0.3)',
-                border: '3px solid #f59e0b',
+                boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.06)',
+                border: '3px solid #6a994e',
                 minWidth: '160px',
                 position: 'relative'
               }}>
                 <Crown style={{ 
                   height: '32px', 
                   width: '32px', 
-                  color: '#f59e0b',
-                  marginBottom: '8px',
-                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                  color: '#6a994e',
+                  marginBottom: '8px'
                 }} />
                 <div style={{ 
                   position: 'relative',
@@ -311,8 +287,8 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     height: '100px',
                     borderRadius: '50%',
                     overflow: 'hidden',
-                    border: '4px solid #f59e0b',
-                    boxShadow: '0 8px 16px -4px rgba(245, 158, 11, 0.4)'
+                    border: '4px solid #6a994e',
+                    boxShadow: '0 8px 16px -4px rgba(0, 0, 0, 0.08)'
                   }}>
                     <img 
                       src={getTopThree()[0].imageUrl} 
@@ -331,7 +307,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     position: 'absolute',
                     top: '-12px',
                     right: '-12px',
-                    background: 'linear-gradient(to right, #f59e0b, #d97706)',
+                    background: '#6a994e',
                     borderRadius: '50%',
                     width: '32px',
                     height: '32px',
@@ -341,7 +317,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     color: 'white',
                     fontSize: '14px',
                     fontWeight: 'bold',
-                    boxShadow: '0 4px 8px -2px rgba(245, 158, 11, 0.4)'
+                    boxShadow: '0 4px 8px -2px rgba(0, 0, 0, 0.1)'
                   }}>
                     1
                   </div>
@@ -357,12 +333,12 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  color: '#b45309',
+                  color: '#6a994e',
                   fontSize: '16px'
                 }}>
                   <Trophy style={{ height: '16px', width: '16px' }} />
                   <span style={{ fontWeight: '700' }}>{getTopThree()[0].wins || 0} wins</span>
-                  <ArrowUp style={{ height: '14px', width: '14px', color: '#10b981' }} />
+                  <ArrowUp style={{ height: '14px', width: '14px', color: '#6a994e' }} />
                 </div>
               </div>
             )}
@@ -390,7 +366,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     height: '80px',
                     borderRadius: '50%',
                     overflow: 'hidden',
-                    border: '3px solid #d97706',
+                    border: '3px solid #6a994e',
                     boxShadow: '0 4px 8px -2px rgba(0, 0, 0, 0.1)'
                   }}>
                     <img 
@@ -410,7 +386,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     position: 'absolute',
                     top: '-8px',
                     right: '-8px',
-                    background: 'linear-gradient(to right, #d97706, #b45309)',
+                    background: '#6a994e',
                     borderRadius: '50%',
                     width: '24px',
                     height: '24px',
@@ -438,8 +414,8 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                   color: '#6b7280',
                   fontSize: '14px'
                 }}>
-                  <Trophy style={{ height: '14px', width: '14px' }} />
-                  <span style={{ fontWeight: '600' }}>{getTopThree()[2].wins || 0} wins</span>
+                  <Trophy style={{ height: '14px', width: '14px', color: '#6a994e' }} />
+                  <span style={{ fontWeight: '600', color: '#111827' }}>{getTopThree()[2].wins || 0} wins</span>
                 </div>
               </div>
             )}
@@ -451,9 +427,9 @@ export default function Leaderboard({ students }: LeaderboardProps) {
           background: 'rgba(255, 255, 255, 0.95)',
           borderRadius: '20px',
           padding: '24px',
-          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.08)',
           backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(245, 158, 11, 0.2)'
+          border: '1px solid rgba(106, 153, 78, 0.25)'
         }}>
           <h2 style={{ 
             fontSize: '20px',
@@ -482,7 +458,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                     cursor: 'pointer'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(245, 158, 11, 0.1)'
+                    e.currentTarget.style.background = 'rgba(106, 153, 78, 0.08)'
                     e.currentTarget.style.transform = 'translateX(4px)'
                   }}
                   onMouseLeave={(e) => {
@@ -517,7 +493,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                       height: '48px',
                       borderRadius: '50%',
                       overflow: 'hidden',
-                      border: '2px solid #f59e0b',
+                      border: '2px solid #6a994e',
                       boxShadow: '0 2px 4px -1px rgba(0, 0, 0, 0.1)'
                     }}>
                       <img 
@@ -529,7 +505,7 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                           objectFit: 'cover'
                         }}
                         onError={(e) => {
-                          e.currentTarget.src = `https://ui-avatars.com/api/?name=${student.name}&size=48&background=f59e0b&color=fff`
+                          e.currentTarget.src = `https://ui-avatars.com/api/?name=${student.name}&size=48&background=6a994e&color=fff`
                         }}
                       />
                     </div>
@@ -557,8 +533,8 @@ export default function Leaderboard({ students }: LeaderboardProps) {
                       fontSize: '16px',
                       fontWeight: '600'
                     }}>
-                      <Trophy style={{ height: '16px', width: '16px' }} />
-                      <span>{student.wins || 0} wins</span>
+                      <Trophy style={{ height: '16px', width: '16px', color: '#6a994e' }} />
+                      <span style={{ color: '#111827' }}>{student.wins || 0} wins</span>
                     </div>
                   </div>
                 </div>

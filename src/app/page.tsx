@@ -6,17 +6,35 @@ import VotingInterface from '@/components/VotingInterface'
 import Leaderboard from '@/components/Leaderboard'
 import { loadStudents } from '@/utils/studentLoader'
 
+const STORAGE_KEY = 'kp_voting_wins_v1'
+function loadPersistedWins(): Record<string, number> {
+  if (typeof window === 'undefined') return {}
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    return raw ? JSON.parse(raw) : {}
+  } catch {
+    return {}
+  }
+}
+function savePersistedWins(wins: Record<string, number>) {
+  if (typeof window === 'undefined') return
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(wins)) } catch {}
+}
+
 export default function Home() {
   const [currentView, setCurrentView] = useState<'voting' | 'leaderboard'>('voting')
   const [students, setStudents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Load students data
+  // Load students data + hydrate wins from localStorage
   useEffect(() => {
     try {
       const studentData = loadStudents()
-      setStudents(studentData)
+      // merge persisted wins
+      const persisted = loadPersistedWins()
+      const merged = studentData.map(s => ({ ...s, wins: persisted[s.id] ?? (s.wins || 0) }))
+      setStudents(merged)
       setLoading(false)
     } catch (err) {
       setError('Failed to load students')
@@ -25,14 +43,15 @@ export default function Home() {
   }, [])
 
   const handleVote = (winnerId: string) => {
-    // Simple local vote handling - just update the local state
-    setStudents(prevStudents => 
-      prevStudents.map(student => 
-        student.id === winnerId 
-          ? { ...student, wins: (student.wins || 0) + 1 }
-          : student
-      )
-    )
+    // Update local state and persist to localStorage
+    setStudents(prev => {
+      const updated = prev.map(s => s.id === winnerId ? { ...s, wins: (s.wins || 0) + 1 } : s)
+      // persist
+      const winsMap: Record<string, number> = {}
+      for (const s of updated) winsMap[s.id] = s.wins || 0
+      savePersistedWins(winsMap)
+      return updated
+    })
   }
 
   if (loading) {
